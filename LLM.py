@@ -34,7 +34,7 @@ class DeepseekChat(BaseModel):
         self.model = model
 
     def chat(self, system_prompt: str, user_prompt: str) -> str:
-        client = OpenAI(api_key=os.getenv('DEEPSEEK_API'), base_url=os.getenv('DEEPSEEK_BASE_URL'))
+        client = OpenAI(base_url = 'http://localhost:11434/v1',api_key='ollama')
         response = client.chat.completions.create(
             model="deepseek-chat",
             messages=[
